@@ -25,12 +25,15 @@ const Home = () => {
 
       try {
         //Send a GET request to the back-end
-        const response = await fetch("http://localhost:8080/api/v1/post", {
-          method: "GET",
-          headers: {
-            "Content-Type": "application/json",
-          },
-        });
+        const response = await fetch(
+          "https://dall-e-clone-rb2g.onrender.com/api/v1/post",
+          {
+            method: "GET",
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        );
 
         //Check if the response is OK so that we can get the result
         if (response.ok) {

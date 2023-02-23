@@ -25,13 +25,16 @@ const CreatePost = () => {
         setGeneratingImg(true);
 
         //Then, get back our response
-        const response = await fetch("http://localhost:8080/api/v1/dalle", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ prompt: form.prompt }),
-        });
+        const response = await fetch(
+          "https://dall-e-clone-rb2g.onrender.com/api/v1/dalle",
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ prompt: form.prompt }),
+          }
+        );
 
         //Parse the response data to be able to see it and set it to the state
         const data = await response.json(); //data is 'photo' received back from the back-end
@@ -67,13 +70,16 @@ const CreatePost = () => {
 
       try {
         //Call the post image route
-        const response = await fetch("http://localhost:8080/api/v1/post", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(form),
-        });
+        const response = await fetch(
+          "https://dall-e-clone-rb2g.onrender.com/api/v1/post",
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(form),
+          }
+        );
 
         await response.json();
         navigate("/"); //Go back to Home to be able to see the image
